@@ -40,6 +40,13 @@ service_create:
 service_deploy: network_create
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
+service_redeploy: network_recreate
+	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
+
+network_recreate:
+	docker network rm proxy
+	docker network create --driver overlay proxy
+
 network_create:
 	docker network create --driver overlay proxy
 
