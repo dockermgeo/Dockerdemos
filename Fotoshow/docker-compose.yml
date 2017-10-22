@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+
+  fotoshower:
+    image: dockermgeo/fotos_dockerconeu17:latest
+    ports:
+      - "8082:80"
+    networks:
+      - proxy
+
+  visualizer:
+    image: dockersamples/visualizer:latest
+    ports:
+      - "8081:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

@@ -1,0 +1,9 @@
+FROM alpine
+
+ENV TEAM_NAME ''
+
+COPY start /
+RUN apk update && apk upgrade  && \
+    apk add figlet && chmod a+x /start
+
+CMD [ "/start" ]

@@ -1,0 +1,9 @@
+FROM ubuntu
+
+ENV TEAM_NAME ''
+
+COPY start /
+RUN apt-get update && apt-get install -y figlet && \
+        figlet $TEAM_NAME && chmod a+x
+
+CMD [ "/start" ]

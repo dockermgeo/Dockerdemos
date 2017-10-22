@@ -1,0 +1,32 @@
+#!/bin/sh
+#figlet $TEAM_NAME
+
+s=11
+c=1
+st=2
+
+if [ -z $TEAM_NAME ]; then
+	echo "[ ERROR ] usage: -e TEAM_NAME='DreamTeam'"
+	exit 1;
+fi
+
+function say() {
+	fig="$1"
+	figlet $fig
+}
+	
+say "Hello $TEAM_NAME"
+while [ $s -gt $c ]; do
+	#c=$((c+1))
+	s=$((s-1))
+	echo " [ ${s} ]"
+	sleep 1
+done
+
+say bang
+sleep $st
+
+clear
+sleep $st
+say "Bye $TEAM_NAME"
+
