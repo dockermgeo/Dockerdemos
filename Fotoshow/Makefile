@@ -27,7 +27,7 @@ service_reboot:
 service_update:
 	docker service update --force --update-parallelism 2 --update-delay 20s --detach=false ${DOCKER_NAME}
 
-#--mode global \
+# --mode global \
 service_create:
 	docker service create \
 	 --publish ${PULBIC_PORT}:80 \
