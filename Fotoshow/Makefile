@@ -37,6 +37,14 @@ service_create:
 	 --label com.meta.copyright.author="${META_AUTHOR}" \
 	 ${DOCKER_IMAGE}
 
+service_visualizer: 
+	docker service create \
+	  --name=viz \
+	  --publish=8080:8080/tcp \
+	  --constraint=node.role==manager \
+	  --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
+	  dockersamples/visualizer
+
 service_deploy: network_create
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
