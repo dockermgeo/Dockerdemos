@@ -38,9 +38,9 @@ service_update:
 
 service_create:
 	docker service create \
-	 --publish ${PULBIC_PORT}:80 \
-	 --mode global \
-	 --name ${DOCKER_NAME} \
+	 --publish=${PULBIC_PORT}:80 \
+	 --mode=global \
+	 --name=${DOCKER_NAME} \
 	 --update-delay 10s \
 	 --env HTML_TITLE="${HTML_TITLE}" \
 	 --label com.meta.copyright.author="${META_AUTHOR}" \
@@ -56,8 +56,8 @@ service_visualizer:
 
 service_dockerui:
 	docker service create \
-	--name dockerui  \
-	--public 80990:9000 \
+	--name=dockerui  \
+	--publish=80990:9000 \
 	--constraint=node.role==manager \
 	--mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
 	abh1nav/dockerui:latest 

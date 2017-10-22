@@ -54,8 +54,8 @@ service_visualizer:
 
 service_dockerui:
         docker service create \
-        --name dockerui  \
-        --public 80990:9000 \
+        --name=dockerui  \
+        --publish=80990:9000 \
         --constraint=node.role==manager \
         --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
         abh1nav/dockerui:latest
