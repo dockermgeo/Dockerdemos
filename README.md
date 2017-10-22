@@ -13,8 +13,8 @@ cd dockerdemos
 
 
 ## Demos
-* Builderdemo - einfacher Container, der nach 10 Sekunden stirbt. ENV-Variable '${TEAM_NAME}'
-* Fotos von der Dockercon ENV-Variable '${HTML_TITLE}' (**! kein Build notwendig**)
+* Builderdemo: Einfacher Container, der nach 10 Sekunden stirbt. ENV-Variable '${TEAM_NAME}'
+* Fotoshow: Von der Dockercon ENV-Variable '${HTML_TITLE}' (**! kein Build notwendig**)
 
 
 ## Build (falls noetig)
