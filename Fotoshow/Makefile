@@ -30,6 +30,7 @@ service_update:
 service_create:
 	docker service create \
 	 --publish ${PULBIC_PORT}:80 \
+	 --mode global \
 	 --name ${DOCKER_NAME} \
 	 --replicas 3 \
 	 --update-delay 10s \
