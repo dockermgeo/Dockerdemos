@@ -1,7 +1,11 @@
 # Docker DEMOS
 
+## PWD Session erzeugen
+```
+open http://play-with-docker.com
+```
 
-Git clone direct
+## Dateien kopieren
 ```
 git clone https://github.com/git-mgeo/dockerdemos.git
 ```
@@ -19,12 +23,12 @@ cd Builderdemo
 make build
 ```
 
-## Docker-Hybrid
+### Docker-Hybrid
 ```
 make run
 ```
 
-## SWARM
+### SWARM
 ```
 make service_create
 ```
