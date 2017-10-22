@@ -82,8 +82,8 @@ pull:
 ls:
 	docker service ls
 
-node:
-	docker service nodes
+logs:
+	docker service logs ${1}
 
 ps:
 	docker service ps ${1}
