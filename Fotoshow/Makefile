@@ -17,6 +17,13 @@ hub:
 run:
 	docker run -ti --rm -e HTML_TITLE=${HTML_TITLE} -p ${PULBIC_PORT}:80 --name ${DOCKER_NAME} ${DOCKER_IMAGE}
 
+network_recreate:
+	docker network rm proxy
+	docker network create --driver overlay proxy
+
+network_create:
+	docker network create --driver overlay proxy
+
 service_stop:
 	docker service rm ${DOCKER_NAME}
 
@@ -45,21 +52,17 @@ service_visualizer:
 	  --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
 	  dockersamples/visualizer
 
-service_deploy: network_create
+stack_deploy: network_create
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
-service_redeploy: network_recreate
+stack_redeploy: network_recreate
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
-network_recreate:
-	docker network rm proxy
-	docker network create --driver overlay proxy
-
-network_create:
-	docker network create --driver overlay proxy
-
-service_destroy_all:
+service_destroy:
 	docker service rm fotoshower_visualizer fotoshower_fotoshow
+
+stack_destroy:
+	docker stack rm -c docker-compose.yml ${DOCKER_NAME}
 	docker network rm proxy
 
 pull:
@@ -67,3 +70,9 @@ pull:
 
 ls:
 	docker service ls
+
+node:
+	docker service nodes
+
+ps:
+	docker service ps ${1}
