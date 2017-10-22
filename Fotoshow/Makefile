@@ -4,6 +4,7 @@ DOCKER_IMAGE=dockermgeo/fotos_dockerconeu17:latest
 PULBIC_PORT=8081
 HTML_TITLE="Blubber"
 LIST_SERVICES="fotoshower_visualizer fotoshower_fotoshowi fotoshower_dockerui"
+VAR_1=$1
 
 
 make ci:
@@ -83,10 +84,10 @@ ls:
 	docker service ls
 
 logs:
-	docker service logs ${1}
+	docker service logs ${VAR_1}
 
 ps:
-	docker service ps ${1}
+	docker service ps ${VAR_1}
 
 rm:
-	docker service rm ${1}
+	docker service rm ${VAR_1}
