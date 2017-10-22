@@ -18,7 +18,7 @@ run:
 	docker run -ti --rm -e HTML_TITLE=${HTML_TITLE} -p ${PULBIC_PORT}:80 --name ${DOCKER_NAME} ${DOCKER_IMAGE}
 
 service_stop:
-			docker service rm ${DOCKER_NAME}
+	docker service rm ${DOCKER_NAME}
 
 service_reboot:
 		docker service rm ${DOCKER_NAME}
@@ -37,9 +37,6 @@ service_create:
 	 --label com.meta.copyright.author="${META_AUTHOR}" \
 	 ${DOCKER_IMAGE}
 
-service_stop:
-	docker service rm ${DOCKER_NAME
-
 service_deploy:
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
@@ -48,3 +45,6 @@ network_create:
 
 pull:
 	docker pull ${DOCKER_IMAGE}
+
+ls:
+	docker service ls
