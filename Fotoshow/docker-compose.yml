@@ -5,14 +5,17 @@ services:
   fotoshow:
     image: dockermgeo/fotos_dockerconeu17:latest
     ports:
-      - "8082:80"
+      - "8081:80"
     networks:
       - proxy
 
   visualizer:
     image: dockersamples/visualizer:latest
     ports:
-      - "8080:8080"
+      - "8082:8080"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
