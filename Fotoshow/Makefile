@@ -1,7 +1,7 @@
 META_AUTHOR := mgeo.de
 DOCKER_NAME=fotoshower
 DOCKER_IMAGE=dockermgeo/fotos_dockerconeu17:latest
-PULBIC_PORT=8082
+PULBIC_PORT=8081
 HTML_TITLE="Blubber"
 
 make ci:
@@ -40,7 +40,7 @@ service_create:
 service_visualizer: 
 	docker service create \
 	  --name=viz \
-	  --publish=8080:8080/tcp \
+	  --publish=8082:8080/tcp \
 	  --constraint=node.role==manager \
 	  --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
 	  dockersamples/visualizer

@@ -6,6 +6,8 @@ services:
     image: dockermgeo/fotos_dockerconeu17:latest
     ports:
       - "8081:80"
+    environment:
+      - TEAM_NAME="Bubble2"
     networks:
       - proxy
 
