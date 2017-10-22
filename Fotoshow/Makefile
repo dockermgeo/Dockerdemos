@@ -3,6 +3,8 @@ DOCKER_NAME=fotoshower
 DOCKER_IMAGE=dockermgeo/fotos_dockerconeu17:latest
 PULBIC_PORT=8081
 HTML_TITLE="Blubber"
+LIST_SERVICES="fotoshower_visualizer fotoshower_fotoshowi fotoshower_dockerui"
+
 
 make ci:
 	make build
@@ -47,19 +49,27 @@ service_create:
 service_visualizer: 
 	docker service create \
 	  --name=viz \
-	  --publish=8082:8080/tcp \
+	  --publish=8088:8080/tcp \
 	  --constraint=node.role==manager \
 	  --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
 	  dockersamples/visualizer
 
+service_dockerui:
+	docker service create \
+	--name dockerui  \
+	--public 80990:9000 \
+	--constraint=node.role==manager \
+	--mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
+	abh1nav/dockerui:latest 
+
+service_destroy:
+	docker service rm ${LIST_SERVICES}
+
 stack_deploy: network_create
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
-stack_redeploy: network_recreate
+stack_redeploy: stack_destory
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
-
-service_destroy:
-	docker service rm fotoshower_visualizer fotoshower_fotoshow
 
 stack_destroy:
 	docker stack rm -c docker-compose.yml ${DOCKER_NAME}

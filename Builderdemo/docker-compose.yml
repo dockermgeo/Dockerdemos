@@ -2,12 +2,10 @@ version: "3"
 
 services:
 
-  fotoshow:
-    image: dockermgeo/fotos_dockerconeu17:latest
-    ports:
-      - "8081:80"
+  logocontainer:
+    image: dockeriscool/demoimage:latest
     environment:
-      - HTML_TITLE="Bubble2"
+      - TEAM_NAME="superTeam"
     networks:
       - proxy
 
