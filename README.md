@@ -19,7 +19,7 @@ cd Builderdemo
 make build
 ```
 
-## Docker-Hybried
+## Docker-Hybrid
 ```
 make run
 ```
