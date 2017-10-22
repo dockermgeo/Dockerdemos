@@ -37,6 +37,9 @@ service_create:
 	 --label com.meta.copyright.author="${META_AUTHOR}" \
 	 ${DOCKER_IMAGE}
 
+service_remove
+	docker service rm ${DOCKER_NAME
+
 service_deploy:
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
