@@ -9,7 +9,7 @@ git clone https://github.com/git-mgeo/dockerdemos.git
 
 ## Demos
 * Builderdemo
-* Fotos von der Dockercon
+* Fotos von der Dockercon (kein Build notwendig)
 
 
 ### Build
