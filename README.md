@@ -7,23 +7,29 @@ git clone https://github.com/git-mgeo/dockerdemos.git
 ```
 
 
-## Fotoshow
-Fotos von der Dockercon
+## Demos
+* Builderdemo
+* Fotos von der Dockercon
 
-### Docker-Hybrid
 
+### Build
+
+```
+cd Builderdemo
+make build
+```
+
+## Docker-Hybried
 ```
 make run
 ```
 
-### SWARM
+## SWARM
 ```
 make service_create
 ```
-
-
-## Demo Build
-Demo Build
+or
 ```
-make build
+make deploy
 ```
+
