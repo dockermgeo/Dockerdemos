@@ -58,6 +58,10 @@ network_recreate:
 network_create:
 	docker network create --driver overlay proxy
 
+service_destroy_all:
+	docker service rm fotoshower_visualizer fotoshower_fotoshow
+	docker network rm proxy
+
 pull:
 	docker pull ${DOCKER_IMAGE}
 
