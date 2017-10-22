@@ -44,4 +44,4 @@ network_create:
 	docker network create --driver overlay proxy
 
 pull:
-	docker pull $IMAGE
+	docker pull ${DOCKER_IMAGE}
