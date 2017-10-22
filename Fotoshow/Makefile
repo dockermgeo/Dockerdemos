@@ -42,3 +42,6 @@ service_deploy:
 
 network_create:
 	docker network create --driver overlay proxy
+
+pull:
+	docker pull $IMAGE
