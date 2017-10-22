@@ -7,7 +7,7 @@ services:
     ports:
       - "8081:80"
     environment:
-      - TEAM_NAME="Bubble2"
+      - HTML_TITLE="Bubble2"
     networks:
       - proxy
 

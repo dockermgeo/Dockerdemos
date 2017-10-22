@@ -13,7 +13,7 @@ git clone https://github.com/git-mgeo/dockerdemos.git
 
 ## Demos
 * Builderdemo - einfacher Container, der nach 10 Sekunden stirbt. ENV-Variable '${TEAM_NAME}'
-* Fotos von der Dockercon ENV-Variable '${TEAM_NAME}' (**! kein Build notwendig**)
+* Fotos von der Dockercon ENV-Variable '${HTML_TITLE}' (**! kein Build notwendig**)
 
 
 ## Build (falls noetig)
