@@ -86,3 +86,7 @@ node:
 
 ps:
 	docker service ps ${1}
+rm:
+	docker service rm ${1}
+
+
