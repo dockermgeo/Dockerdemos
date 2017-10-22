@@ -1,6 +1,12 @@
 # Docker DEMOS
 
 
+Git clone direct
+```
+git clone https://github.com/git-mgeo/dockerdemos.git
+```
+
+
 ## Fotoshow
 Fotos von der Dockercon
 
