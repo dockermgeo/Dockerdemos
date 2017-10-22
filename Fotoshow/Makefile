@@ -37,7 +37,7 @@ service_create:
 	 --label com.meta.copyright.author="${META_AUTHOR}" \
 	 ${DOCKER_IMAGE}
 
-service_remove
+service_stop:
 	docker service rm ${DOCKER_NAME
 
 service_deploy:
