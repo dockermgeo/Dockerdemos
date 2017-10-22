@@ -55,6 +55,7 @@ service_visualizer:
 service_dockerui:
         docker service create \
         --name=dockerui  \
+	--env=/docker.sock \
         --publish=8099:9000 \
         --constraint=node.role==manager \
         --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
