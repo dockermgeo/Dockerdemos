@@ -84,7 +84,7 @@ ls:
 	docker service ls
 
 logs:
-	docker service logs ${VAR_1}
+	docker service logs ((echo ${VAR_1}))
 
 ps:
 	docker service ps ${VAR_1}
