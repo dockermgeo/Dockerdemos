@@ -37,7 +37,7 @@ service_create:
 	 --label com.meta.copyright.author="${META_AUTHOR}" \
 	 ${DOCKER_IMAGE}
 
-service_deploy:
+service_deploy: network_create
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
 network_create:
