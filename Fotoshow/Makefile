@@ -3,7 +3,7 @@ DOCKER_NAME=fotoshower
 DOCKER_IMAGE=dockermgeo/fotos_dockerconeu17:latest
 PULBIC_PORT=8081
 HTML_TITLE="Blubber"
-LIST_SERVICES="fotoshower_visualizer fotoshower_fotoshowi fotoshower_dockerui"
+LIST_SERVICES="viz fotoshower_fotoshowi dockerui"
 VAR_1=$1
 
 
