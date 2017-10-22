@@ -8,6 +8,7 @@ open http://play-with-docker.com
 ## Dateien kopieren
 ```
 git clone https://github.com/git-mgeo/dockerdemos.git
+cd dockerdemos
 ```
 
 
