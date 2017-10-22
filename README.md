@@ -16,19 +16,19 @@ git clone https://github.com/git-mgeo/dockerdemos.git
 * Fotos von der Dockercon ENV-Variable 'TEAM_NAME' (kein Build notwendig)
 
 
-### Build
+## Build (falls noetig)
 
 ```
 cd Builderdemo
 make build
 ```
 
-### Docker-Hybrid
+## Docker-Hybrid
 ```
 make run
 ```
 
-### SWARM
+## SWARM
 ```
 make service_create
 ```
