@@ -36,10 +36,7 @@ services:
     networks:
       - proxy
 
-version: '3'
-
-services:
-  app:
+  swarmapp:
     image: swarmpit/swarmpit:latest
     environment:
       SWARMPIT_DB: http://db:5984
