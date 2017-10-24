@@ -1,0 +1,66 @@
+version: "3"
+
+services:
+
+  fotoshow:
+    image: dockermgeo/fotos_dockerconeu17:latest
+    ports:
+      - "8081:80"
+    environment:
+      - HTML_TITLE="Bubble2"
+    networks:
+      - proxy
+
+  visualizer:
+    image: dockersamples/visualizer:latest
+    ports:
+      - "8088:8080"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - proxy
+
+  portainer:
+    image: portainer/portainer
+    ports:
+      - "8090:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    command: -H unix:///var/run/docker.sock
+    networks:
+      - proxy
+
+  swarmapp:
+    image: swarmpit/swarmpit:latest
+    environment:
+      SWARMPIT_DB: http://db:5984
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 8089:8080
+    networks:
+      - proxy
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+  db:
+    image: klaemo/couchdb:2.0.0
+    volumes:
+      - db-data:/opt/couchdb/data
+    networks:
+      - proxy
+
+volumes:
+  db-data:
+    driver: local
+
+networks:
+  proxy:
+    external: true
