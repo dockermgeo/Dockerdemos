@@ -70,6 +70,11 @@ service_destroy:
 stack_deploy: network_create
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
+up:
+	 docker-compose -f docker-compose.yml up
+down:
+	 docker-compose -f docker-compose.yml down
+
 stack_redeploy: stack_destory
 	 docker stack deploy -c docker-compose.yml ${DOCKER_NAME}
 
